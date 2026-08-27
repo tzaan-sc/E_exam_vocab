@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình Tạo Bài Thi & Đánh Giá</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- DOMPurify to sanitize HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.3/purify.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h1>FormatFlow <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.8;">| Quiz Maker</span></h1>
+            </div>
+            <div class="actions">
+                <button id="themeToggle" class="btn btn-icon" title="Chuyển đổi giao diện">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="editor-container">
+            <div class="pane input-pane">
+                <div class="pane-header">
+                    <h2><i class="fa-solid fa-pen-nib"></i> Nhập dữ liệu</h2>
+                    <button id="clearBtn" class="btn btn-text btn-sm"><i class="fa-solid fa-eraser"></i> Xóa</button>
+                </div>
+                
+                <div class="input-section">
+                    <label>1. Nội dung câu hỏi (Paste nội dung TOEIC)</label>
+                    <textarea id="sourceText" placeholder="Nhập hoặc dán nội dung bài thi của bạn vào đây...&#10;&#10;Ví dụ:&#10;PART 5&#10;Directions: A word or phrase is missing in each of the sentences below...&#10;&#10;Câu 101&#10;Edison Delivery's trucks leave the warehouse promptly _______ 6:00 A.M. each morning.&#10;(A) at (B) on (C) for (D) with"></textarea>
+                </div>
+                
+                <div class="input-section answer-section">
+                    <label>2. Khóa đáp án (Để tự động chấm điểm)</label>
+                    <textarea id="answerText" placeholder="Ví dụ: 101A, 102. B, 103 C..."></textarea>
+                </div>
+            </div>
+            
+            <div class="pane output-pane">
+                <div class="pane-header">
+                    <h2><i class="fa-solid fa-gamepad"></i> Làm bài thi</h2>
+                    <div class="output-actions">
+                        <span id="scoreDisplay" class="score-display"></span>
+                        <button id="submitBtn" class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Chấm điểm</button>
+                    </div>
+                </div>
+                <div id="formattedOutput" class="output-content">
+                    <div style="color: var(--text-muted); text-align: center; margin-top: 2rem; font-style: italic;">
+                        Nhập nội dung bài thi ở bên trái để bắt đầu làm bài...
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

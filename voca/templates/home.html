@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Learn English from what you read</h2>
+    <p class="subtitle">Paste any article, text, or practice test to extract vocabulary and get full contextual translation</p>
+    
+    <div class="two-col">
+        <section class="left">
+            <label for="inputText" class="section-label">📄 English Passage</label>
+            <textarea id="inputText" placeholder="Paste your English text here..." rows="10"></textarea>
+            
+            <div class="controls">
+                <label for="topN">Words to extract:</label>
+                <select id="topN">
+                    {% for i in [5,10,15,20,30] %}
+                    <option value="{{ i }}" {% if i==10 %}selected{% endif %}>{{ i }} words</option>
+                    {% endfor %}
+                </select>
+                <button id="analyzeBtn">🚀 Analyze Text</button>
+            </div>
+
+            <!-- Full Translation Box (appears after analysis) -->
+            <div id="translationBox" class="translation-box hidden">
+                <div class="translation-box-header">
+                    <span class="box-title">🇻🇳 Full Context Translation (Bản dịch toàn bài)</span>
+                    <button id="btnCopyTranslation" class="btn-sm" onclick="copyFullTranslation()">📋 Copy</button>
+                </div>
+                <div id="fullTranslationContent" class="full-translation-content"></div>
+            </div>
+        </section>
+
+        <section class="right">
+            <div class="right-header">
+                <label class="section-label">⭐ Vocabulary to Learn</label>
+                <span id="vocabCountBadge" class="badge hidden">0 words</span>
+            </div>
+            <ul id="wordList" class="word-list">
+                <li class="empty-msg">Paste an English article on the left and click "Analyze Text" to see words here.</li>
+            </ul>
+        </section>
+    </div>
+</div>
+{% endblock %}

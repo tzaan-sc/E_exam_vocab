@@ -1,0 +1,4 @@
+Flask==3.0.3
+spacy==3.7.5
+deep-translator==1.11.4
+nltk==3.9.1

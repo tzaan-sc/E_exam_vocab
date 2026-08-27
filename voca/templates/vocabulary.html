@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container library-container">
+    <div class="library-header">
+        <div>
+            <h2>📚 My Vocabulary Library</h2>
+            <p class="subtitle">Words you have marked and saved for learning</p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="vocabSearch" placeholder="🔍 Search saved words..." />
+        </div>
+    </div>
+
+    <div class="library-stats">
+        <span id="savedCountBadge" class="badge">0 words saved</span>
+    </div>
+
+    <div id="libraryListContainer">
+        <ul id="savedWordList" class="saved-word-list">
+            <li class="loading-msg">⏳ Loading your vocabulary...</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/vocabulary.js') }}"></script>
+{% endblock %}
